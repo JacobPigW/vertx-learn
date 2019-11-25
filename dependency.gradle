@@ -1,0 +1,43 @@
+ext {
+    //例如 gradle buildTar -xtest -Pprofile=slave
+    if (project.hasProperty('profile')) {
+        profile = project['profile']
+    } else {
+        profile = "dev"
+    }
+    println "profile : " + profile
+
+    if (project.hasProperty('submodule')) {
+        submodule = project['submodule']
+    } else {
+        submodule = "api"
+    }
+    println "submodule : " + submodule
+}
+
+ext.versions = [
+        vertx    : '3.8.3',
+        junit    : '4.12',
+        lombok   : '1.18.10',
+        mysql    : '5.1.38',
+        lang3    : '3.9',
+        fastjson : '1.2.62',
+        guava    : '28.1-jre',
+]
+
+ext.libraries = [
+        "vertxCore"   : "io.vertx:vertx-core:${versions.vertx}",
+        "vertxWeb"    : "io.vertx:vertx-web:${versions.vertx}",
+
+        "guava"       : "com.google.guava:guava:${versions.guava}",
+
+        "lang3"       : "org.apache.commons:commons-lang3:${versions.lang3}",
+
+        "lombok"      : "org.projectlombok:lombok:${versions.lombok}",
+
+        "fastjson"    : "com.alibaba:fastjson:${versions.fastjson}",
+
+        "mysql"       : "mysql:mysql-connector-java:${versions.mysql}",
+
+        "junit"       : "junit:junit:${versions.junit}"
+]

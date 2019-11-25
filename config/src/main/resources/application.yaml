@@ -1,0 +1,22 @@
+spring:
+  data:
+    jpa:
+      repositories:
+        enabled: false
+
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+    default-property-inclusion: non_null #忽略null值的字段
+    deserialization:
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+
+  jpa:
+    show-sql:
+      true
+
+    hibernate:
+      ddl-auto: none
+
+    hikari:
+      idle-timeout: 10000

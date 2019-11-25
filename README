@@ -1,0 +1,23 @@
+Dependency:
+  1. >= java 8
+  2. >= gradle 4.4.1
+
+Package:
+  1. cd submodule
+    1.1 Sub modules are: api, keepwatch, web and so on
+  2. gradle buildTar -Psubmodule=api -Pprofile=master
+    2.1 master : master db, read and write privileges
+    2.2 slave  : slave db, only read privilege
+  3. cd build/distributions
+    3.1 submodule.zip or submodule.tar.gz
+
+Deploy:
+  1. cp package_home/submodule.tar.gz /path/to/deploy/home
+  2. tar zxvf submodule.tar.gz
+  3. cd /path/to/deploy/home/submodule
+    - lib  : all jar
+    - logs : app log, gc log and dump log
+    - bin  : start script
+    - conf : configure files
+  4. bin/submodule {port} {start|stop|restart|status}
+  
